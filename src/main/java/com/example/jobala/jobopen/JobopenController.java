@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class JobopenController {
 
     //공고 수정
     @PutMapping("/api/comp/jobopen/{id}")  // 주소 수정 필요
-    public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody JobopenRequest.UpdateDTO reqDTO) {
+    public ResponseEntity<?> update(@PathVariable Integer id, @Valid @RequestBody JobopenRequest.UpdateDTO reqDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         JobopenResponse.UpdateDTO respDTO = jobopenService.jobopenUpdate(id, sessionUser, reqDTO);
         return ResponseEntity.ok(new ApiUtil<>(respDTO));
@@ -49,7 +50,7 @@ public class JobopenController {
 
     //공고 등록
     @PostMapping("/api/comp/jobopen")  // 주소 수정 필요
-    public ResponseEntity<?> jobopenSave(@RequestBody JobopenRequest.SaveDTO reqDTO) {
+    public ResponseEntity<?> jobopenSave(@Valid @RequestBody JobopenRequest.SaveDTO reqDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         JobopenResponse.SaveDTO respDTO = jobopenService.jobopenSave(reqDTO, sessionUser);
         return ResponseEntity.ok(new ApiUtil(respDTO));

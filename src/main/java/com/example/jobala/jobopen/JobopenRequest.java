@@ -1,6 +1,8 @@
 package com.example.jobala.jobopen;
 
 import com.example.jobala._user.User;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.sql.Update;
@@ -36,6 +38,8 @@ public class JobopenRequest {
     @Data
     public static class UpdateDTO {
         //compname = ? ,jobopenTitle=? , career=?, edu=?, jobType=?,salary=?,compLocation=?,content=? ,skills =?
+        @Size(min = 1, max = 10, message = "공고 제목은 10자를 초가할 수 없습니다.")
+        @NotEmpty(message = "공고 제목은 공백일 수 없습니다.")
         private String jobopenTitle; //공고제목
         private String career;// 경력
         private String edu; // 학력
@@ -52,6 +56,8 @@ public class JobopenRequest {
     @Data
     public static class SaveDTO {
         private String edu;
+        @Size(min = 3, max = 10, message = "공고 제목은 10자를 초가할 수 없습니다.")
+        @NotEmpty(message = "공고 제목은 공백일 수 없습니다.")
         private String jobopenTitle;
         private String career;
         private String jobType;
