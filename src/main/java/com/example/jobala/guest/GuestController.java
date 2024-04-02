@@ -6,8 +6,10 @@ import com.example.jobala._user.UserResponse;
 import com.example.jobala.resume.ResumeResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -37,7 +39,7 @@ public class GuestController {
 
     // 개인 - 마이페이지 - 프로필 업데이트
     @PutMapping("/api/guest/profile")
-    public ResponseEntity<?> profileUpdate(@RequestBody GuestRequest.GuestProfileUpdateDTO reqDTO) {
+    public ResponseEntity<?> profileUpdate(@Valid @RequestBody GuestRequest.GuestProfileUpdateDTO reqDTO, Errors errors) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         UserResponse.GuestProfile respDTO = guestService.guestUpdateProfile(reqDTO, sessionUser);
         return ResponseEntity.ok(new ApiUtil(respDTO));

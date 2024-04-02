@@ -1,5 +1,6 @@
 package com.example.jobala.guest;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ public class GuestRequest {
     @NoArgsConstructor
     @Data
     public static class SearchDTO {
+
         private String career;
         private String compLocation;
         private String edu;
