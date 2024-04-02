@@ -17,13 +17,13 @@ public class BoardResponse {
     // 글 수정
     @Data
     public static class UpdateDTO {
-        private Integer id;
+        private Integer boardId;
         private String title;
         private String content;
         private Integer userId;
 
         public UpdateDTO(Board board) {
-            this.id = board.getId();
+            this.boardId = board.getId();
             this.title = board.getTitle();
             this.content = board.getContent();
             this.userId = board.getUser().getId();
@@ -33,12 +33,12 @@ public class BoardResponse {
     // 글쓰기
     @Data
     public static class SaveDTO {
-        private int id;
+        private int boardId;
         private String title;
         private String content;
 
         public SaveDTO(Board board) {
-            this.id = board.getId();
+            this.boardId = board.getId();
             this.title = board.getTitle();
             this.content = board.getContent();
         }
@@ -47,7 +47,7 @@ public class BoardResponse {
     // TODO: 이름
     @Data
     public static class DetailDTO {
-        private int id;
+        private int boardId;
         private String title;
         private String content;
         private int userId;
@@ -56,7 +56,7 @@ public class BoardResponse {
         private List<ReplyDTO> replies = new ArrayList<>();
 
         public DetailDTO(Board board, User sessionUser, List<Reply> repliesList) {
-            this.id = board.getId();
+            this.boardId = board.getId();
             this.title = board.getTitle();
             this.content = board.getContent();
             this.userId = board.getUser().getId();
@@ -93,7 +93,7 @@ public class BoardResponse {
     // 글 조회
     @Data
     public static class BoardDTO {
-        private Integer id;
+        private Integer boardId;
         private String title;
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
         private Timestamp createdAt;
@@ -101,7 +101,7 @@ public class BoardResponse {
         private String username;
 
         public BoardDTO(Board board) {
-            this.id = board.getId();
+            this.boardId = board.getId();
             this.title = board.getTitle();
             this.createdAt = board.getCreatedAt();
             this.userId = board.getUser().getId();

@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 
 public class ApplyRequest {
 
-    // TODO: 이름
     // 상태 업데이트
     @Data
     @AllArgsConstructor
@@ -26,8 +25,7 @@ public class ApplyRequest {
         private String status;
     }
 
-    // TODO: 이름
-    // 지원하기
+    // 포지션 제안, 지원하기
     @Data
     @AllArgsConstructor
     public static class ApplyRequestDTO {

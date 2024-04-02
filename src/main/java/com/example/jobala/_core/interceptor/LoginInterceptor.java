@@ -1,7 +1,6 @@
 package com.example.jobala._core.interceptor;
 
 import com.example.jobala._core.errors.apiException.ApiException401;
-
 import com.example.jobala._user.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
