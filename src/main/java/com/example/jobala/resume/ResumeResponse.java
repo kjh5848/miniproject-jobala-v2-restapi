@@ -2,6 +2,8 @@ package com.example.jobala.resume;
 
 import com.example.jobala._user.User;
 import com.example.jobala.jobopen.Jobopen;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -104,11 +106,22 @@ public class ResumeResponse {
     @AllArgsConstructor
     @Data
     public static class ScoutListDTO {
+        @NotEmpty(message = "이력서 아이디는 공백일 수 없습니다")
         private Integer id; //이력서 아이디
+
+        @NotEmpty(message = "유저네임이 공백일 수 없습니다")
         private String username;
+
+        @NotEmpty(message = "이력서제목은 공백일 수 없습니다")
         private String resumeTitle; //이력서제목
+
+        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "학력은 공백일 수 없습니다")
         private String edu; //학력
-        private String career; //경력
+
+        @Pattern(regexp = "^(신입|경력)$", message = "경력은 공백일 수 없습니다")
+        private String career;// 경력
+
+        @NotEmpty(message = "사진경로는 공백일 수 없습니다")
         private String imgFilename;
 
     }

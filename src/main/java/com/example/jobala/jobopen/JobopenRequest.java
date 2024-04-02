@@ -55,19 +55,19 @@ public class JobopenRequest {
         //compname = ? ,jobopenTitle=? , career=?, edu=?, jobType=?,salary=?,compLocation=?,content=? ,skills =?
         private String jobopenTitle; //공고제목
 
-        @Pattern(regexp = "^(신입|경력)$", message = "status는 공백일 수 없습니다")
+        @Pattern(regexp = "^(신입|경력)$", message = "경력은 공백일 수 없습니다")
         private String career;// 경력
 
-        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "status는 공백일 수 없습니다")
+        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "학력은 공백일 수 없습니다")
         private String edu; // 학력
 
-        @Pattern(regexp = "^(계약직|정규직)$", message = "고용형태 공백일 수 없습니다")
+        @Pattern(regexp = "^(계약직|정규직)$", message = "고용형태는 공백일 수 없습니다")
         private String jobType; // 고용형태
 
         @Pattern(regexp = "^(협의|3000만원 이상|5000만원 이상)$", message = "연봉은 공백일 수 없습니다")
         private String salary; //연봉
 
-        @Pattern(regexp = "^(백엔드|프론트엔드)$", message = "status는 공백일 수 없습니다")
+        @Pattern(regexp = "^(백엔드|프론트엔드)$", message = "희망직업은 공백일 수 없습니다")
         private String hopeJob;//희망직무
 
         @NotEmpty(message = "근무지역이 공백일 수 없습니다")
@@ -83,10 +83,13 @@ public class JobopenRequest {
     @AllArgsConstructor
     @Data
     public static class SaveDTO {
+        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "학력은 공백일 수 없습니다")
         private String edu;
 
+        @NotEmpty(message = "채용공고제목은 공백일 수 없습니다")
         private String jobopenTitle;
 
+        @Pattern(regexp = "^(신입|경력)$", message = "경력은 공백일 수 없습니다")
         private String career;
 
         private String jobType;

@@ -15,13 +15,13 @@ public class CompRequest {
     @AllArgsConstructor
     @Data
     public static class SearchDTO {
-        @Pattern(regexp = "^(신입|경력)$", message = "status는 비어있을 수 없습니다")
+        @Pattern(regexp = "^(신입|경력)$", message = "경력은 비어있을 수 없습니다")
         private String career;
 
-        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "status는 비어있을 수 없습니다")
+        @Pattern(regexp = "^(고등학교 졸업|대학교 졸업)$", message = "학력은 비어있을 수 없습니다")
         private String edu;
 
-        @Pattern(regexp = "^(백엔드|프론트엔드)$", message = "status는 비어있을 수 없습니다")
+        @Pattern(regexp = "^(백엔드|프론트엔드)$", message = "희망직업은 비어있을 수 없습니다")
         private String hopeJob;
     }
 
@@ -36,6 +36,7 @@ public class CompRequest {
         private String name;
 
         @NotEmpty(message = "비밀번호가 공백일 수 없습니다")
+        @Size(min = 3, max= 20, message = "비밀번호는 3자 이상 20자 이하여야 합니다")
         private String password;
 
         @NotEmpty(message = "전화번호가 공백일 수 없습니다")
