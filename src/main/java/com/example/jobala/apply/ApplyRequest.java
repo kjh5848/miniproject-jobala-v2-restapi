@@ -5,6 +5,7 @@ import com.example.jobala.jobopen.Jobopen;
 import com.example.jobala.resume.Resume;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +18,13 @@ public class ApplyRequest {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class ApplyStatusUpdateRequestDTO {
-        @NotEmpty
+        @NotEmpty(message = "applyId는 공백일 수 없습니다")
+        @Size(min = 1, message = "applyIdsms 최소 1자 이상여야 합니다")
         private Integer applyId;
+
         @Pattern(regexp = "^(열람전|합격|불합격|수락|거절)$", message = "status는 비어있을 수 없습니다")
-        @NotEmpty(message = "status는 비어있을 수 없습니다")
+        @NotEmpty(message = "status는 공백일 수 없습니다")
+        @Size(min = 1, message = "status는 최소 1자 이상여야 합니다")
         private String status;
     }
 
@@ -29,10 +33,14 @@ public class ApplyRequest {
     @Data
     @AllArgsConstructor
     public static class ApplyRequestDTO {
-        @NotEmpty(message = "status는 비어있을 수 없습니다")
-        private Integer resumeId;
-        @NotEmpty(message = "status는 비어있을 수 없습니다")
-        private Integer jobopenId;
+        @NotEmpty(message = "applyId는 공백일 수 없습니다")
+        @Size(min = 1, message = "applyIdsms 최소 1자 이상여야 합니다")
+        private Integer applyId;
+
+        @Pattern(regexp = "^(열람전|합격|불합격|수락|거절)$", message = "status는 비어있을 수 없습니다")
+        @NotEmpty(message = "status는 공백일 수 없습니다")
+        @Size(min = 1, message = "status는 최소 1자 이상여야 합니다")
+        private String status;
 
         public Apply toEntity(Resume resume, Jobopen jobopen, User sessionUser) {
             return Apply.builder()
