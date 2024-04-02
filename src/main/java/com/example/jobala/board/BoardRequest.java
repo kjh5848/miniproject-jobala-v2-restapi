@@ -25,7 +25,6 @@ public class BoardRequest {
         }
     }
 
-
     // TODO: 이름
     @Data
     public static class UpdateDTO {

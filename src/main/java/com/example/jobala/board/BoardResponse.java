@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardResponse {
 
-
     // 글 수정
     @Data
     public static class UpdateDTO {
@@ -109,6 +108,4 @@ public class BoardResponse {
             this.username = board.getUser().getUsername();
         }
     }
-
-
 }

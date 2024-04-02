@@ -27,7 +27,6 @@ public class ScrapQueryRepository {
         return scrap;
     }
 
-
     public Scrap findGuestScrapById(Integer jobopenId, Integer userId) {
         String q = """
                 select * from scrap_tb where role = 0 AND jobopen_id = ? AND user_id = ?; 
@@ -38,5 +37,4 @@ public class ScrapQueryRepository {
         Scrap scrap = (Scrap) query.getSingleResult();
         return scrap;
     }
-
 }

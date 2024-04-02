@@ -16,7 +16,6 @@ import java.util.List;
 public class CompQueryRepository {
     private final EntityManager em;
 
-
     //인재채용 검색필터
     public List<ResumeResponse.ScoutListDTO> findAll(String skills, CompRequest.SearchDTO resDTO) {
         String skillQuery = """
@@ -99,7 +98,6 @@ public class CompQueryRepository {
         return resumeList;
     }
 
-
     public List<Resume> findResumeById(int userId) {
         Query query = em.createNativeQuery("select * from resume_tb where user_id = ? order by id desc", Resume.class);
         query.setParameter(1, userId);
@@ -125,7 +123,6 @@ public class CompQueryRepository {
         JpaResultMapper rm = new JpaResultMapper();
         return rm.list(query, ResumeResponse.ScoutListDTO.class);
     }
-
 
     //기업 - 공고관리 목록
     public List<Jobopen> findJobopenByWithUserId(int id) {

@@ -76,7 +76,6 @@ public class ResumeService {
         return respDTO;
     }
 
-
     public ResumeResponse.CheckBoxDTO getCheckedSkills(Integer id) {
         Resume resume = resumeJPARepository.findById(id).orElseThrow(() -> new ApiException403("이력서를 찾을 수 없습니다."));
         String skillsStr = resume.getSkills();

@@ -16,9 +16,7 @@ public class CompRequest {
         private String hopeJob;
     }
 
-
     // DEL: Response에서 ScoutListDTO 만듬
-
 
     //TODO: 이름
     @Getter

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 public class GuestResponse {
 
-
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -19,7 +18,6 @@ public class GuestResponse {
         private String jobType;
     }
 
-
     @Data
     @AllArgsConstructor
     public static class JopOpenApplyDTO {
@@ -27,7 +25,6 @@ public class GuestResponse {
         private String resumeTitle;
         private String state;
     }
-
 
     @Data
     @AllArgsConstructor
@@ -40,7 +37,6 @@ public class GuestResponse {
         private String imgFilename;
         private String imgTitle;
     }
-
 
     @Data
     @AllArgsConstructor

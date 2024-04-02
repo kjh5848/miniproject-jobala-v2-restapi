@@ -40,8 +40,6 @@ public class ResumeResponse {
         }
     }
 
-
-
     @Data
     public static class MngDTO {
         private Integer id;
@@ -103,7 +101,6 @@ public class ResumeResponse {
         }
     }
 
-
     @AllArgsConstructor
     @Data
     public static class ScoutListDTO {
@@ -115,7 +112,6 @@ public class ResumeResponse {
         private String imgFilename;
 
     }
-
 
     @AllArgsConstructor
     @Data

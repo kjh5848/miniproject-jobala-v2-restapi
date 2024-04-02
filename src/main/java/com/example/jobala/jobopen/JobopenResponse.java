@@ -40,7 +40,6 @@ public class JobopenResponse {
         }
     }
 
-
     @Data
     public static class UpdateDTO {
         private Integer id;
