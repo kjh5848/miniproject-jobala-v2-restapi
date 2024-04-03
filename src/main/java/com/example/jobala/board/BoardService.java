@@ -1,6 +1,7 @@
 package com.example.jobala.board;
 
 import com.example.jobala._core.errors.apiException.ApiException403;
+import com.example.jobala._core.errors.apiException.ApiException404;
 import com.example.jobala._user.SessionUser;
 import com.example.jobala._user.User;
 import com.example.jobala._user.UserJPARepository;
@@ -21,20 +22,20 @@ public class BoardService {
 
 
     // 글삭제하기
-    public void boardDelete(int boardId, Integer sessionUserId) {
-        Board board = boardJPARepository.findById(boardId)
-                .orElseThrow(() -> new ApiException403("게시글을 찾을 수 없습니다."));
+    public void boardDelete(int id, Integer sessionUserId) {
+        Board board = boardJPARepository.findById(id)
+                .orElseThrow(() -> new ApiException404("게시글을 찾을 수 없습니다."));
 
         if (sessionUserId != board.getUser().getId()) {
             throw new ApiException403("게시글을 삭제 할 권한이 없습니다.");
         }
-        boardJPARepository.deleteById(boardId);
+        boardJPARepository.deleteById(id);
     }
 
     // 글상세보기
     public BoardResponse.DetailDTO boardDetail(int boardId, SessionUser sessionUser) {
         Board board = boardJPARepository.findByIdJoinUser(boardId)
-                .orElseThrow(() -> new ApiException403("게시글을 찾을 수 없습니다"));
+                .orElseThrow(() -> new ApiException404("게시글을 찾을 수 없습니다"));
         User user = userJPARepository.findById(sessionUser.getId())
                 .orElseThrow(() -> new ApiException403("해당하는 회원정보를 찾을 수 없습니다."));
 
