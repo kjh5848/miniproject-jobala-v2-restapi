@@ -25,7 +25,9 @@
 <br/>
 
 > ## 발표자료
-- PPT 파일 다운로드[바로가기]()
+> 
+- PPT 파일 [다운로드](https://github.com/kjh5848/miniproject-jobala-v2-restapi/row/main/JObala%EC%9E%90%EB%B0%94%EB%9D%BC%202%EC%B0%A8.pptx)
+- PDF 파일 [다운로드](https://github.com/kjh5848/miniproject-jobala-v2-restapi/row/main/JObala%EC%9E%90%EB%B0%94%EB%9D%BC%202%EC%B0%A8.pdf)
 - PPT 브라우저로 보기[바로가기](https://www.canva.com/design/DAGBPq1glcU/4HFpBjmpfg75Di9BTtV3mA/view?utm_content=DAGBPq1glcU&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 ---
 <br/>
